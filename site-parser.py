@@ -78,13 +78,14 @@ if __name__ == '__main__':
     for item in result:
         print(f'\t{item}: {len(result[item])}')
 
+        # Copying files to subdirectories
         for file in result[item]:
 
-            newpath = PATH_TO_SEPARATE_FILES + '\\\\' + item
+            newpath = PATH_TO_SEPARATE_FILES + '\\' + item
             if not os.path.exists(newpath):
                 os.mkdir(newpath)
 
-            src = PATH_TO_ALL_FILES + '\\\\' + file
-            dst = newpath + '\\\\' + file
+            src = PATH_TO_ALL_FILES + '\\' + file
+            dst = newpath + '\\' + file
 
             shutil.copy(src, dst)
